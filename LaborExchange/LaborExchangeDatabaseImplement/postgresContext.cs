@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using LaborExchangeDatabaseImplement.Models;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -24,7 +25,6 @@ namespace LaborExchangeDatabaseImplement
         public virtual DbSet<Education> Education { get; set; }
         public virtual DbSet<Employer> Employer { get; set; }
         public virtual DbSet<Exchangeemployee> Exchangeemployee { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vacancy> Vacancy { get; set; }
 
@@ -42,12 +42,7 @@ namespace LaborExchangeDatabaseImplement
             {
                 entity.ToTable("applicant");
 
-                entity.HasIndex(e => e.Educationid)
-                    .HasName("edc_idx");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Birthdaydate)
                     .HasColumnName("birthdaydate")
@@ -95,18 +90,7 @@ namespace LaborExchangeDatabaseImplement
             {
                 entity.ToTable("deal");
 
-                entity.HasIndex(e => e.Applicantid)
-                    .HasName("apl_idx");
-
-                entity.HasIndex(e => e.Employerid)
-                    .HasName("emp_idx");
-
-                entity.HasIndex(e => e.Exchangeemployeeid)
-                    .HasName("exempl_idx");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Applicantid).HasColumnName("applicantid");
 
@@ -141,9 +125,7 @@ namespace LaborExchangeDatabaseImplement
             {
                 entity.ToTable("education");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Type)
                     .IsRequired()
@@ -155,12 +137,7 @@ namespace LaborExchangeDatabaseImplement
             {
                 entity.ToTable("employer");
 
-                entity.HasIndex(e => e.Userid)
-                    .HasName("usr_idx");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Activity)
                     .IsRequired()
@@ -192,12 +169,7 @@ namespace LaborExchangeDatabaseImplement
             {
                 entity.ToTable("exchangeemployee");
 
-                entity.HasIndex(e => e.Userid)
-                    .HasName("usre_idx");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Middlename)
                     .HasColumnName("middlename")
@@ -224,30 +196,11 @@ namespace LaborExchangeDatabaseImplement
                     .HasConstraintName("user_fkey");
             });
 
-            modelBuilder.Entity<Role>(entity =>
-            {
-                entity.ToTable("role");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasColumnName("name")
-                    .HasMaxLength(255);
-            });
-
             modelBuilder.Entity<Users>(entity =>
             {
                 entity.ToTable("users");
 
-                entity.HasIndex(e => e.Roleid)
-                    .HasName("rol_idx");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Login)
                     .IsRequired()
@@ -259,28 +212,14 @@ namespace LaborExchangeDatabaseImplement
                     .HasColumnName("password")
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Roleid).HasColumnName("roleid");
-
-                entity.HasOne(d => d.Role)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.Roleid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("role_fkey");
+                entity.Property(e => e.Role).HasColumnName("role");
             });
 
             modelBuilder.Entity<Vacancy>(entity =>
             {
                 entity.ToTable("vacancy");
 
-                entity.HasIndex(e => e.Educationid)
-                    .HasName("edcv_idx");
-
-                entity.HasIndex(e => e.Employerid)
-                    .HasName("empl_idx");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Description)
                     .IsRequired()
