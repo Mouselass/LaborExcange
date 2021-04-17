@@ -32,6 +32,7 @@ namespace LaborExchangeDatabaseImplement
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=newuser");
             }
         }
@@ -98,9 +99,9 @@ namespace LaborExchangeDatabaseImplement
                     .HasColumnName("date")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Employerid).HasColumnName("employerid");
-
                 entity.Property(e => e.Exchangeemployeeid).HasColumnName("exchangeemployeeid");
+
+                entity.Property(e => e.Vacancyid).HasColumnName("vacancyid");
 
                 entity.HasOne(d => d.Applicant)
                     .WithMany(p => p.Deal)
@@ -108,17 +109,17 @@ namespace LaborExchangeDatabaseImplement
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("applicant_fkey");
 
-                entity.HasOne(d => d.Employer)
-                    .WithMany(p => p.Deal)
-                    .HasForeignKey(d => d.Employerid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("employer_fkey");
-
                 entity.HasOne(d => d.Exchangeemployee)
                     .WithMany(p => p.Deal)
                     .HasForeignKey(d => d.Exchangeemployeeid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("exchangeemployee_fkey");
+
+                entity.HasOne(d => d.Vacancy)
+                    .WithMany(p => p.Deal)
+                    .HasForeignKey(d => d.Vacancyid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("vacancy_fkey");
             });
 
             modelBuilder.Entity<Education>(entity =>

@@ -36,7 +36,7 @@ namespace LaborExchangeBusinessLogic.BusinessLogics
             });
             if (element != null && element.Id != model.Id)
             {
-                throw new Exception("Уже есть такие затраты");
+                throw new Exception("Уже есть такое образование");
             }
             if (model.Id.HasValue)
             {
@@ -56,7 +56,7 @@ namespace LaborExchangeBusinessLogic.BusinessLogics
             });
             if (element == null)
             {
-                throw new Exception("Мебель не найдена");
+                throw new Exception("Образование не найдено");
             }
             _educationStorage.Delete(model);
         }

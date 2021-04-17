@@ -53,7 +53,6 @@ namespace LaborExchange
                     Password = textBoxPassword.Text
                 };
                 logic.CreateOrUpdate(model);
-                Program.User = logic.Read(model)?[0];
                 DialogResult = DialogResult.OK;
                 Close();
             }

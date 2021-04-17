@@ -22,7 +22,7 @@ namespace LaborExchange
 
         EducationViewModel view;
 
-        private void FormFurniture_Load(object sender, EventArgs e)
+        private void FormEducation_Load(object sender, EventArgs e)
         {
             if (id.HasValue)
             {

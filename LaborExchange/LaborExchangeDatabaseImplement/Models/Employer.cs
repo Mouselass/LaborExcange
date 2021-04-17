@@ -11,7 +11,6 @@ namespace LaborExchangeDatabaseImplement.Models
     {
         public Employer()
         {
-            Deal = new HashSet<Deal>();
             Vacancy = new HashSet<Vacancy>();
         }
 
@@ -23,7 +22,6 @@ namespace LaborExchangeDatabaseImplement.Models
         public int Userid { get; set; }
 
         public virtual Users User { get; set; }
-        public virtual ICollection<Deal> Deal { get; set; }
         public virtual ICollection<Vacancy> Vacancy { get; set; }
     }
 }

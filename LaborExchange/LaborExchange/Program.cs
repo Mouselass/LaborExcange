@@ -30,8 +30,18 @@ namespace LaborExchange
             var currentContainer = new UnityContainer();
             currentContainer.RegisterType<IEducationStorage, EducationStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IUserStorage, UserStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IApplicantStorage, ApplicantStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IEmployerStorage, EmployerStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IExchangeEmployeeStorage, ExchangeEmployeeStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IVacancyStorage, VacancyStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IDealStorage, DealStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<EducationLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<UserLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ApplicantLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<EmployerLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ExchangeEmployeeLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<VacancyLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<DealLogic>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
     }

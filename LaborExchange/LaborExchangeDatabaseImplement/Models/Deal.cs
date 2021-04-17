@@ -12,11 +12,11 @@ namespace LaborExchangeDatabaseImplement.Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public int Applicantid { get; set; }
-        public int Employerid { get; set; }
+        public int Vacancyid { get; set; }
         public int Exchangeemployeeid { get; set; }
 
         public virtual Applicant Applicant { get; set; }
-        public virtual Employer Employer { get; set; }
         public virtual Exchangeemployee Exchangeemployee { get; set; }
+        public virtual Vacancy Vacancy { get; set; }
     }
 }

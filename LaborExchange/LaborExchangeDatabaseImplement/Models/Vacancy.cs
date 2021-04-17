@@ -9,6 +9,11 @@ namespace LaborExchangeDatabaseImplement.Models
 {
     public partial class Vacancy
     {
+        public Vacancy()
+        {
+            Deal = new HashSet<Deal>();
+        }
+
         public int Id { get; set; }
         public string Post { get; set; }
         public string Workexperience { get; set; }
@@ -18,5 +23,6 @@ namespace LaborExchangeDatabaseImplement.Models
 
         public virtual Education Education { get; set; }
         public virtual Employer Employer { get; set; }
+        public virtual ICollection<Deal> Deal { get; set; }
     }
 }

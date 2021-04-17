@@ -82,7 +82,7 @@ namespace LaborExchange
             this.Controls.Add(this.labelType);
             this.Name = "FormEducation";
             this.Text = "Образование";
-            this.Load += new System.EventHandler(this.FormFurniture_Load);
+            this.Load += new System.EventHandler(this.FormEducation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

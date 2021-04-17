@@ -38,7 +38,11 @@ namespace LaborExchange
             this.сделкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.входToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.регистрацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.labelVacancy = new System.Windows.Forms.Label();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -114,17 +118,52 @@ namespace LaborExchange
             this.регистрацияToolStripMenuItem.Text = "Регистрация";
             this.регистрацияToolStripMenuItem.Click += new System.EventHandler(this.регистрацияToolStripMenuItem_Click);
             // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTitle.Location = new System.Drawing.Point(315, 43);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(137, 25);
+            this.labelTitle.TabIndex = 1;
+            this.labelTitle.Text = "Биржа труда";
+            // 
+            // labelVacancy
+            // 
+            this.labelVacancy.AutoSize = true;
+            this.labelVacancy.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelVacancy.Location = new System.Drawing.Point(12, 75);
+            this.labelVacancy.Name = "labelVacancy";
+            this.labelVacancy.Size = new System.Drawing.Size(124, 17);
+            this.labelVacancy.TabIndex = 2;
+            this.labelVacancy.Text = "Список вакансий:";
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(0, 95);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(800, 356);
+            this.dataGridView.TabIndex = 3;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.labelVacancy);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FormMain";
             this.Text = "Главная форма";
+            this.Load += new System.EventHandler(this.FormVacancy_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +180,9 @@ namespace LaborExchange
         private System.Windows.Forms.ToolStripMenuItem сделкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem входToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem регистрацияToolStripMenuItem;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelVacancy;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }
 
